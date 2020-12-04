@@ -1,5 +1,7 @@
 package net.codejava.controller;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -13,40 +15,67 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.codejava.dto.GheVeDto;
 import net.codejava.model.*;
 import net.codejava.repository.*;
 import net.codejava.service.CustomerService;
+import net.codejava.service.GheService;
+import net.codejava.service.HanggheService;
 import net.codejava.service.LichchieuService;
 import net.codejava.service.PhimService;
+import net.codejava.service.VeService;
 
 @Controller
 public class CustomerController {
 
-	@Autowired
-	private CustomerService customerService;
+	@Autowired CustomerService customerService;
 	@Autowired LichchieuService lichchieuService;
 	@Autowired PhimService phimService;
-//	@Autowired PhimService phongService;
-
-	@Autowired GheRepository gheRepository;
-	@Autowired HoadonRepository hoadonRepository;
-	@Autowired VeRepository veRepository;
+	@Autowired PhimService phongService;
+	@Autowired HanggheService hanggheService;
+	@Autowired GheService gheService;
+	@Autowired VeService veService;
 
 	@RequestMapping("/")
 	public ModelAndView home() {
 
 		System.out.println("Vao home customer nhe");
 		
-		Lichchieu c = lichchieuService.get(1L);
-		System.out.println("Da lay xong lich chieu: c.ma = " + c.getMa());
-				
-		System.out.println("Phong cua lich: ma = " + c.getPhong().getMa());
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date(2021, 12,14));
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		System.out.println("Day of weekk 2021 14 = " + dayOfWeek);
+//		List<Ghe> listGhe = gheService.findByLichchieu(lichchieuService.get(1L));
+//		System.out.println("Lay listghe thanh cong");
+//		
+//		List<Ve> listVe = veService.findByLichchieu(lichchieuService.get(1L));
+//		System.out.println("Lay ve by lich chieu thanh cong");
+//		for (Ve ve : listVe) {
+//			System.out.println("Ve ghe = " + ve.getGhe().getMa() + " hoadon = " + ve.getHoadon().getMa());
+//		}
+		
+//		for (Ghe ghe : listGhe) {
+//			System.out.println("Ghe = " + ghe.getMa() + " Loai: " + ghe.getLoaighe().getTen());
+//		}
+//		
+//		List<GheVeDto> listGheve = gheService.findGheVeDto(lichchieuService.get(1L));
+//		System.out.println("List gheve thanh cong6");
 
-		List<Ghe> g = gheRepository.findByLichchieu(c.getPhong());
-		System.out.println("ghe ne: ");
-		for (Ghe ghe : g) {
-			System.out.println(ghe.getMa());
-		}
+//		for (GheVeDto ghe : listGheve) {
+////			System.out.println("Gheve = " + ghe.getMa() + " Giatien: " + ghe.getGiatien() + " Hoadon: " + ghe.getHoadon().getMa());
+//			System.out.println("Gheve = " + ghe.getMa() + " Giatien: " + ghe.getGiatien());
+//		}
+//		
+//		Lichchieu c = lichchieuService.get(1L);
+//		System.out.println("Da lay xong lich chieu: c.ma = " + c.getMa());
+//				
+//		System.out.println("Phong cua lich: ma = " + c.getPhong().getMa());
+//
+//		List<Ghe> g = gheRepository.findByLichchieu(c.getPhong());
+//		System.out.println("ghe ne: ");
+//		for (Ghe ghe : g) {
+//			System.out.println(ghe.getMa());
+//		}
 //		
 		List<Customer> listCustomer = customerService.listAll();
 		ModelAndView mav = new ModelAndView("customer/index");

@@ -3,19 +3,59 @@ package net.codejava.model;
 import java.io.Serializable;
 
 import javax.persistence.*;
-import javax.persistence.Id;
 
 @Entity
-@IdClass(VeId.class)
 public class Ve implements Serializable {
 
-	@ManyToOne
-	@JoinColumn(name="maghe")
-	@Id Ghe ghe;
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long ma;
+	
+
+	Long giatien;
 	
 	@ManyToOne
-	@JoinColumn(name="mahoadon")
-	@Id Hoadon hoadon;
+	@JoinColumn(name="maghe")
+	Ghe ghe;
+	
+	@ManyToOne
+	@JoinColumn(name="malichchieu", nullable=false)
+	Lichchieu lichchieu;
+	
+	@ManyToOne
+	@JoinColumn(name="mahoadon", nullable=true)
+	Hoadon hoadon;
+
+	public Ve(Long ma, Long giatien, Ghe ghe, Lichchieu lichchieu, Hoadon hoadon) {
+		super();
+		this.ma = ma;
+		this.giatien = giatien;
+		this.ghe = ghe;
+		this.lichchieu = lichchieu;
+		this.hoadon = hoadon;
+	}
+	
+	public Ve(Long giatien, Ghe ghe, Lichchieu lichchieu) {
+		super();
+		this.giatien = giatien;
+		this.ghe = ghe;
+		this.lichchieu = lichchieu;
+	}
+
+	public Lichchieu getLichchieu() {
+		return lichchieu;
+	}
+
+	public void setLichchieu(Lichchieu lichchieu) {
+		this.lichchieu = lichchieu;
+	}
+	public Long getMa() {
+		return ma;
+	}
+
+	public void setMa(Long ma) {
+		this.ma = ma;
+	}
 	
 	public Ghe getGhe() {
 		return ghe;
@@ -47,7 +87,6 @@ public class Ve implements Serializable {
 		this.hoadon = hoadon;
 		this.giatien = giatien;
 	}
-	Long giatien;
 	
 	@Override
 	public String toString() {
