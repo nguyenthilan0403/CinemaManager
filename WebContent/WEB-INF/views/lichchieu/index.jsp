@@ -6,16 +6,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Customer Manager</title>
+<title>Cinema Manager</title>
 </head>
 <body>
 <div align="center">
-	<h2>Film Manager</h2>
+	<h2>Quan ly lich chieu phim</h2>
 	<form method="get" action="search">
 		<input type="text" name="keyword" /> &nbsp;
 		<input type="submit" value="Search" />
 	</form>
-	<h3><a href="lichchieu/new">New Film</a></h3>
+	<h3><a href="lichchieu/new">Tao lich chieu moi</a></h3>
 	<table border="1" cellpadding="5">
 		<tr>
 			<th>ID</th>
@@ -31,6 +31,8 @@
 			<td>${lich.phim.ten}</td>
 			<td>${lich.phong.ten}</td>
 			<td>
+				<a href="lichchieu/detail?id=${lich.ma}">Detail</a>
+				&nbsp;&nbsp;&nbsp;
 				<a href="phim/edit?id=${lich.ma}">Edit</a>
 				&nbsp;&nbsp;&nbsp;
 				<a href="phim/delete?id=${lich.ma}">Delete</a>

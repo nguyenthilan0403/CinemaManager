@@ -30,6 +30,9 @@ public class Lichchieu implements Serializable {
 	
 	@OneToMany(mappedBy = "lichchieu", cascade = CascadeType.ALL)
 	private List<Hoadon> hoadon;
+	
+	@OneToMany(mappedBy="lichchieu", cascade = CascadeType.ALL)
+	List<Ve> ve;
 
 	public Lichchieu(Long ma, String thoigian, Phim phim, Phong phong, List<Hoadon> hoadon) {
 		super();

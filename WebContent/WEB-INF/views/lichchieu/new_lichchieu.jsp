@@ -18,7 +18,7 @@
 	</form>
 	<h3><a href="lichchieu/new">New Film</a></h3>
 
-	<form:form action="save2" method="post" modelAttribute="lichchieu">
+	<form:form action="save" method="post" modelAttribute="lichchieu">
 		<table border="0" cellpadding="5">
 			<tr>
 				<td>Thoigian </td>
@@ -27,17 +27,28 @@
 			<tr>
 				<td>Phim </td>
 				<td>
-				    <form:select path="phim">
+<%-- 				    <form:select path="phim">
                       <form:options items="${listPhim}" />
-                       </form:select>
+                     </form:select>
+ --%>                     
+ 					<select name="maphim">
+			          <c:forEach var="phim" items="${listPhim}">
+			            <option value="${phim.ma}">${phim.ten}</option>
+			          </c:forEach>
+			        </select>
 				</td>
 			</tr>
 			<tr>
 				<td>Phong </td>
 				<td>
-				    <form:select path="phong">
+<%-- 				    <form:select path="phong">
                       <form:options items="${listPhong}" />
-                       </form:select>
+                       </form:select> --%>
+                     <select name="maphong">
+			          <c:forEach var="phong" items="${listPhong}">
+			            <option value="${phong.ma}">${phong.ten}</option>
+			          </c:forEach>
+			        </select>
 				</td>
 			</tr>
 			<tr>

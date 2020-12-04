@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.codejava.model.Hangghe;
 import net.codejava.model.Lichchieu;
 import net.codejava.repository.LichchieuRepository;
 
@@ -16,7 +17,11 @@ public class LichchieuService {
 	@Autowired
 	LichchieuRepository repo;
 	
-	
+//	public List<Hangghe> getHangghe(Lichchieu lichchieu)
+//	{
+//		return repo.getHangghe(lichchieu);
+//	}
+//	
 	public void save(Lichchieu lichchieu) {
 		repo.save(lichchieu);
 	}
