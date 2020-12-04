@@ -31,6 +31,25 @@ public class Ghe implements Serializable{
 	@OneToMany(mappedBy="ghe",fetch = FetchType.LAZY)
 	Set<Ve> ve;
 		
+	String ten;
+	
+	public Ghe(Long ma, Hangghe hangghe, Loaighe loaighe, Set<Ve> ve, String ten) {
+		super();
+		this.ma = ma;
+		this.hangghe = hangghe;
+		this.loaighe = loaighe;
+		this.ve = ve;
+		this.ten = ten;
+	}
+
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+
 	public Ghe(Long ma, Hangghe hangghe, Loaighe loaighe, Set<Ve> ve) {
 		super();
 		this.ma = ma;
@@ -82,6 +101,7 @@ public class Ghe implements Serializable{
 		result = prime * result + ((hangghe == null) ? 0 : hangghe.hashCode());
 		result = prime * result + ((loaighe == null) ? 0 : loaighe.hashCode());
 		result = prime * result + ((ma == null) ? 0 : ma.hashCode());
+		result = prime * result + ((ten == null) ? 0 : ten.hashCode());
 		result = prime * result + ((ve == null) ? 0 : ve.hashCode());
 		return result;
 	}
@@ -109,6 +129,11 @@ public class Ghe implements Serializable{
 			if (other.ma != null)
 				return false;
 		} else if (!ma.equals(other.ma))
+			return false;
+		if (ten == null) {
+			if (other.ten != null)
+				return false;
+		} else if (!ten.equals(other.ten))
 			return false;
 		if (ve == null) {
 			if (other.ve != null)
