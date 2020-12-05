@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/views/lichchieu/index.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/phim/index.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/phim/new_phim.jsp=UTF-8
+encoding//src/net/codejava/controller/CustomerController.java=UTF-8
+encoding//src/net/codejava/controller/LichchieuController.java=UTF-8
+encoding//src/net/codejava/controller/PhimController.java=UTF-8
+encoding//src/net/codejava/util/Uti.java=UTF-8

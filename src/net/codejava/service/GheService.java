@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.codejava.dto.GheVeDto;
 import net.codejava.model.Ghe;
 import net.codejava.model.Hangghe;
 import net.codejava.model.Lichchieu;
@@ -21,11 +20,6 @@ public class GheService {
 	public List<Ghe> findByLichchieu(Lichchieu lichchieu)
 	{
 		return repo.findByLichchieu(lichchieu.getPhong());
-	}
-	
-	public List<GheVeDto> findGheVeDto(Lichchieu lichchieu)
-	{
-		return repo.findGheVe(lichchieu);
 	}
 	
 	public void save(Ghe ghe) {

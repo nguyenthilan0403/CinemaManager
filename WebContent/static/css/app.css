@@ -1,5 +1,5 @@
 html{
-	background-color:#2F2F2F;
+	background-color: white;
 }
 
 body{
@@ -52,7 +52,7 @@ body{
     z-index: 20;
     position: fixed;
     left: 0px;
-    margin-top:
+    /* margin-top: */
 }
 
 #sidemenu #menu {
@@ -101,5 +101,6 @@ body{
     margin-bottom:10%;
     margin-left:20%;
     padding-left:10px;
+    overflow: scroll;
 }
     

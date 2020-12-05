@@ -11,7 +11,7 @@
 <body>
 	<div align="center">
 		<h2>Edit Customer</h2>
-		<form:form action="customer/save" method="post" modelAttribute="customer">
+		<form:form action="save" method="post" modelAttribute="customer">
 			<table border="0" cellpadding="5">
 				<tr>
 					<td>ID: </td>
