@@ -1,39 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>       
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-	"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Customer</title>
-</head>
-<body>
-	<div align="center">
-		<h2>Tao phim moi</h2>
-		<form:form action="save" method="post" modelAttribute="phim">
-			<table border="0" cellpadding="5">
-				<tr>
-					<td>Ten phim: </td>
-					<td><form:input path="ten" /></td>
-				</tr>
-				<tr>
-					<td>Noi dung: </td>
-					<td><form:input path="noidung" /></td>
-				</tr>
-				<tr>
-					<td>Anh: </td>
-					<td><form:input path="anh" /></td>
-				</tr>	
-				<tr>
-					<td>Theloai: </td>
-					<td><form:input path="theloai" /></td>
-				</tr>		
-				<tr>
-					<td colspan="2"><input type="submit" value="Save"></td>
-				</tr>						
-			</table>
-		</form:form>
-	</div>
-</body>
-</html>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<div align="center">
+	<h2>Tạo phim mới</h2>
+	<form:form action="save" method="post" modelAttribute="phim">
+		<table class="table table-striped">
+		<tbody>
+			<tr>
+				<td>Tên: </td>
+				<td><form:input path="ten" /></td>
+			</tr>
+			<tr>
+				<td>Nội dung: </td>
+				<td><form:input path="noidung" /></td>
+			</tr>
+			<tr>
+				<td>Ảnh: </td>
+				<td><form:input path="anh" /></td>
+			</tr>	
+			<tr>
+				<td>Thể loại: </td>
+<%-- 				<td><form:input path="theloai" /></td> --%>
+				<td>
+					<form:select path="theloai">
+					    <form:options items="${listTheloai}" />
+					</form:select>
+				</td>
+			</tr>		
+			<tr>
+				<td colspan="2"><input type="submit" value="Lưu"></td>
+			</tr>			
+		</tbody>			
+		</table>
+	</form:form>
+</div>

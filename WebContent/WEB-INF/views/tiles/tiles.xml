@@ -7,7 +7,8 @@
    <definition name="base-definition" 
        template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
        <put-attribute name="title" value="" />  
-       <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />  
+<!--        <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />   -->
+       <put-attribute name="header" expression="${title2}" />  
        <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
        <put-attribute name="body" value="" />  
        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
@@ -26,9 +27,9 @@
        <put-attribute name="body" value="/WEB-INF/views/lichchieu/index.jsp" />  
    </definition>  
    <!-- Lịch chiếu Index Page -->
-   <definition name="lichchieu/detail" extends="base-definition">  
+   <definition name="lichchieu/edit" extends="base-definition">  
        <put-attribute name="title" value="Chi tiết lịch chiếu" />  
-       <put-attribute name="body" value="/WEB-INF/views/lichchieu/detail.jsp" />  
+       <put-attribute name="body" value="/WEB-INF/views/lichchieu/edit.jsp" />  
    </definition>  
    <!-- Tạo lịch chiếu mới Page -->
    <definition name="lichchieu/new_lichchieu" extends="base-definition">  
@@ -48,8 +49,8 @@
        <put-attribute name="body" value="/WEB-INF/views/phim/edit_phim.jsp" />  
    </definition>  
    <!-- Tạo lịch chiếu mới Page -->
-   <definition name="phim/new_lichchieu" extends="base-definition">  
-       <put-attribute name="title" value="Tạo lịch chiếu mới" />  
+   <definition name="phim/new_phim" extends="base-definition">  
+       <put-attribute name="title" value="Thêm phim mới" />  
        <put-attribute name="body" value="/WEB-INF/views/phim/new_phim.jsp" />  
    </definition>  
 

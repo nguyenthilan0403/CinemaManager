@@ -10,16 +10,53 @@ import javax.persistence.*;
 public class Lichchieu implements Serializable {
 	@Override
 	public String toString() {
-		return "Lichchieu [ma=" + ma + ", thoigian=" + thoigian + ", phim=" + phim + ", phong=" + phong + ", hoadon="
+		return "Lichchieu [ma=" + ma + ", thoigian=" + giochieu + ", phim=" + phim + ", phong=" + phong + ", hoadon="
 				+ hoadon + "]";
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ma;
+
+	private String giochieu;
+	private String ngaychieu;
 	
-	private String thoigian;
-	
+	public Lichchieu(Long ma, String giochieu, String ngaychieu, Phim phim, Phong phong, List<Hoadon> hoadon,
+			List<Ve> ve) {
+		super();
+		this.ma = ma;
+		this.giochieu = giochieu;
+		this.ngaychieu = ngaychieu;
+		this.phim = phim;
+		this.phong = phong;
+		this.hoadon = hoadon;
+		this.ve = ve;
+	}
+
+	public String getGiochieu() {
+		return giochieu;
+	}
+
+	public void setGiochieu(String giochieu) {
+		this.giochieu = giochieu;
+	}
+
+	public String getNgaychieu() {
+		return ngaychieu;
+	}
+
+	public void setNgaychieu(String ngaychieu) {
+		this.ngaychieu = ngaychieu;
+	}
+
+	public List<Ve> getVe() {
+		return ve;
+	}
+
+	public void setVe(List<Ve> ve) {
+		this.ve = ve;
+	}
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "maphim", nullable = false)
 	private Phim phim;
@@ -37,7 +74,7 @@ public class Lichchieu implements Serializable {
 	public Lichchieu(Long ma, String thoigian, Phim phim, Phong phong, List<Hoadon> hoadon) {
 		super();
 		this.ma = ma;
-		this.thoigian = thoigian;
+		this.giochieu = thoigian;
 		this.phim = phim;
 		this.phong = phong;
 		this.hoadon = hoadon;
@@ -55,11 +92,11 @@ public class Lichchieu implements Serializable {
 	}
 
 	public String getThoigian() {
-		return thoigian;
+		return giochieu;
 	}
 
 	public void setThoigian(String thoigian) {
-		this.thoigian = thoigian;
+		this.giochieu = thoigian;
 	}
 
 	public Phim getPhim() {
@@ -90,11 +127,13 @@ public class Lichchieu implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((giochieu == null) ? 0 : giochieu.hashCode());
 		result = prime * result + ((hoadon == null) ? 0 : hoadon.hashCode());
 		result = prime * result + ((ma == null) ? 0 : ma.hashCode());
+		result = prime * result + ((ngaychieu == null) ? 0 : ngaychieu.hashCode());
 		result = prime * result + ((phim == null) ? 0 : phim.hashCode());
 		result = prime * result + ((phong == null) ? 0 : phong.hashCode());
-		result = prime * result + ((thoigian == null) ? 0 : thoigian.hashCode());
+		result = prime * result + ((ve == null) ? 0 : ve.hashCode());
 		return result;
 	}
 
@@ -107,6 +146,11 @@ public class Lichchieu implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Lichchieu other = (Lichchieu) obj;
+		if (giochieu == null) {
+			if (other.giochieu != null)
+				return false;
+		} else if (!giochieu.equals(other.giochieu))
+			return false;
 		if (hoadon == null) {
 			if (other.hoadon != null)
 				return false;
@@ -116,6 +160,11 @@ public class Lichchieu implements Serializable {
 			if (other.ma != null)
 				return false;
 		} else if (!ma.equals(other.ma))
+			return false;
+		if (ngaychieu == null) {
+			if (other.ngaychieu != null)
+				return false;
+		} else if (!ngaychieu.equals(other.ngaychieu))
 			return false;
 		if (phim == null) {
 			if (other.phim != null)
@@ -127,10 +176,10 @@ public class Lichchieu implements Serializable {
 				return false;
 		} else if (!phong.equals(other.phong))
 			return false;
-		if (thoigian == null) {
-			if (other.thoigian != null)
+		if (ve == null) {
+			if (other.ve != null)
 				return false;
-		} else if (!thoigian.equals(other.thoigian))
+		} else if (!ve.equals(other.ve))
 			return false;
 		return true;
 	}

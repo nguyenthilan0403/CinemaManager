@@ -1,30 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-	"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Customer Manager</title>
-</head>
-<body>
-<div align="center">
-	<h2>Film Manager</h2>
+
+<div class="container">
+	<h2>Quản lý phim</h2>
+	
 	<form method="get" action="search">
 		<input type="text" name="keyword" /> &nbsp;
 		<input type="submit" value="Search" />
 	</form>
-	<h3><a href="phim/new">New Film</a></h3>
-	<table border="1" cellpadding="5">
+	<a href="phim/new" class="btn btn-primary d-flex flex-row" role="button">Thêm phim mới</a>
+	
+	<table class="table table-striped">
+		<thead>
 		<tr>
-			<th>ID</th>
-			<th>Title</th>
-			<th>About</th>
-			<th>Image</th>
-			<th>Genre</th>
-			<th>Action</th>
+			<th>Mã</th>
+			<th>Tên</th>
+			<th>Nội dung</th>
+			<th>Ảnh</th>
+			<th>Thể loại</th>
+			<th>Hành động</th>
 		</tr>
+		</thead>
+		<tbody>
 		<c:forEach items="${listPhim}" var="phim">
 		<tr>
 			<td>${phim.ma}</td>
@@ -39,7 +36,6 @@
 			</td>
 		</tr>
 		</c:forEach>
+		</tbody>
 	</table>
 </div>	
-</body>
-</html>

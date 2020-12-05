@@ -1,45 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-	"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cinema Manager</title>
-</head>
-<body>
+
 <div align="center">
-	<h2>Quan ly lich chieu phim</h2>
+	<h2>Quản lý lịch chiếu phim</h2>
 	<form method="get" action="search">
 		<input type="text" name="keyword" /> &nbsp;
 		<input type="submit" value="Search" />
 	</form>
-	<h3><a href="lichchieu/new">Tao lich chieu moi</a></h3>
-	<table border="1" cellpadding="5">
+	<a href="lichchieu/new" class="btn btn-primary" role="button">Tạo lịch chiếu mới</a>
+	
+	<table class="table table-striped">
+		<thead>
 		<tr>
-			<th>ID</th>
-			<th>Thoi gian</th>
+			<th>Mã</th>
 			<th>Phim</th>
-			<th>Phong</th>
-			<th>Action</th>
+			<th>Ngày chiếu</th>
+			<th>Giờ chiếu</th>
+			<th>Phòng</th>
+			<th>Hành động</th>
 		</tr>
+		</thead>
+		<tbody>
 		<c:forEach items="${listLichchieu}" var="lich">
 		<tr>
 			<td>${lich.ma}</td>
-			<td>${lich.thoigian}</td>
 			<td>${lich.phim.ten}</td>
+			<td>${lich.ngaychieu}</td>
+			<td>${lich.giochieu}</td>
 			<td>${lich.phong.ten}</td>
 			<td>
-				<a href="lichchieu/detail?id=${lich.ma}">Detail</a>
-				&nbsp;&nbsp;&nbsp;
-				<a href="phim/edit?id=${lich.ma}">Edit</a>
-				&nbsp;&nbsp;&nbsp;
-				<a href="phim/delete?id=${lich.ma}">Delete</a>
+				<a href="lichchieu/edit?id=${lich.ma}" class="btn btn-info" role="button">Chỉnh sửa</a>
+				<a href="lichchieu/delete?id=${lich.ma}" class="btn btn-danger" role="button">Xóa</a>
 			</td>
 		</tr>
 		</c:forEach>
+		</tbody>
 	</table>
 </div>	
-</body>
-</html>
