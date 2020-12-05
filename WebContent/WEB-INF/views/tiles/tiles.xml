@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+
+<tiles-definitions>  
+ 
+   <!-- Base Definition -->
+   <definition name="base-definition" 
+       template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
+       <put-attribute name="title" value="" />  
+<!--        <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />   -->
+       <put-attribute name="header" expression="${title2}" />  
+       <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+   </definition>  
+ 
+   <!-- Customer Index Page -->
+   <definition name="customer/index" extends="base-definition">  
+       <put-attribute name="title" value="Index Customer" />  
+       <put-attribute name="body" value="/WEB-INF/views/customer/index.jsp" />  
+   </definition>
+   
+   <!-- ====================== LỊCH CHIẾU ======================= -->
+   <!-- Lịch chiếu Index Page -->
+   <definition name="lichchieu/index" extends="base-definition">  
+       <put-attribute name="title" value="Trang chủ lịch chiếu" />  
+       <put-attribute name="body" value="/WEB-INF/views/lichchieu/index.jsp" />  
+   </definition>  
+   <!-- Lịch chiếu Index Page -->
+   <definition name="lichchieu/edit" extends="base-definition">  
+       <put-attribute name="title" value="Chi tiết lịch chiếu" />  
+       <put-attribute name="body" value="/WEB-INF/views/lichchieu/edit.jsp" />  
+   </definition>  
+   <!-- Tạo lịch chiếu mới Page -->
+   <definition name="lichchieu/new_lichchieu" extends="base-definition">  
+       <put-attribute name="title" value="Tạo lịch chiếu mới" />  
+       <put-attribute name="body" value="/WEB-INF/views/lichchieu/new_lichchieu.jsp" />  
+   </definition>  
+   
+   <!-- ====================== PHIM ======================= -->
+   <!-- Lịch chiếu Index Page -->
+   <definition name="phim/index" extends="base-definition">  
+       <put-attribute name="title" value="Trang chủ lịch chiếu" />  
+       <put-attribute name="body" value="/WEB-INF/views/phim/index.jsp" />  
+   </definition>  
+   <!-- Lịch chiếu Index Page -->
+   <definition name="phim/edit_phim" extends="base-definition">  
+       <put-attribute name="title" value="Chi tiết lịch chiếu" />
+       <put-attribute name="body" value="/WEB-INF/views/phim/edit_phim.jsp" />  
+   </definition>  
+   <!-- Tạo lịch chiếu mới Page -->
+   <definition name="phim/new_phim" extends="base-definition">  
+       <put-attribute name="title" value="Thêm phim mới" />  
+       <put-attribute name="body" value="/WEB-INF/views/phim/new_phim.jsp" />  
+   </definition>  
+
+ 
+</tiles-definitions>
