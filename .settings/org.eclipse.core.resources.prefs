@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/views/tiles/template/defaultHeader.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/tiles/template/defaultMenu.jsp=UTF-8
+encoding/<project>=UTF-8
+separateDerivedEncodings=true

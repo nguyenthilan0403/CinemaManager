@@ -48,7 +48,7 @@
        <put-attribute name="body" value="/WEB-INF/views/phim/edit_phim.jsp" />  
    </definition>  
    <!-- Tạo lịch chiếu mới Page -->
-   <definition name="phim/new_lichchieu" extends="base-definition">  
+   <definition name="phim/new_phim" extends="base-definition">  
        <put-attribute name="title" value="Tạo lịch chiếu mới" />  
        <put-attribute name="body" value="/WEB-INF/views/phim/new_phim.jsp" />  
    </definition>  

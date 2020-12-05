@@ -39,7 +39,7 @@ public class CustomerController {
 	@RequestMapping("/")
 	public ModelAndView home() {
 
-		System.out.println("Vao home customer nhe");
+		System.out.println("Vao home customer nhe222");
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date(2021, 12,14));

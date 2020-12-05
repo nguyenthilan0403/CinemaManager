@@ -1,3 +1,7 @@
-<div>
-    	<h1>Tiles Demo</h1>
-</div>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+
+<nav>
+<a href="">Đăng ký</a>
+<a href=" ">Đăng nhập</a>
+<a href=" ">Vé của tôi</a>
+</nav>
