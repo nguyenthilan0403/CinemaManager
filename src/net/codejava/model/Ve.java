@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-public class Ve implements Serializable {
+public class Ve implements Serializable, Comparable<Ve> {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -131,6 +131,12 @@ public class Ve implements Serializable {
 	}
 
 	public Ve() {
+	}
+	
+	@Override
+	public int compareTo(Ve v) {
+		
+		return this.getGhe().getTen().compareTo(v.getGhe().getTen());
 	}
 
 	

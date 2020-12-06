@@ -18,7 +18,7 @@ public interface VeRepository extends CrudRepository<Ve, Long> {
 	
 	public List<Ve> findByHoadon(Hoadon hoadon);
 
-	@Query(value="SELECT v FROM Ve v WHERE v.hoadon.lichchieu = :lichchieu")
+	@Query(value="SELECT v FROM Ve v WHERE v.lichchieu = :lichchieu")
 	public List<Ve> findByLichchieu(@Param("lichchieu") Lichchieu lichchieu);
 
 	

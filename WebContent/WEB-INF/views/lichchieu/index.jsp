@@ -3,12 +3,24 @@
 
 <div align="center">
 	<h2>Quản lý lịch chiếu phim</h2>
-	<form method="get" action="search">
-		<input type="text" name="keyword" /> &nbsp;
-		<input type="submit" value="Search" />
-	</form>
-	<a href="lichchieu/new" class="btn btn-primary" role="button">Tạo lịch chiếu mới</a>
 	
+<!-- 	<div class="container"> -->
+<!-- 	  <div class="row"> -->
+<!-- 	    <div class="col-6"> -->
+<!--  			<form method="get" action="search"> --> 
+<!--  				<input type="text" name="keyword" /> &nbsp; --> 
+<!--  				<input type="submit" value="Search" /> --> 
+<!--  			</form> --> 
+<!-- 			ehehehe -->
+<!-- 		</div> -->
+<!-- 	    <div class="col-6"> -->
+<!-- 			ehe22hehe21222 -->
+<!-- 	    	<a href="lichchieu/new" class="btn btn-primary" role="button">Tạo lịch chiếu mới</a> -->
+<!-- 	    </div> -->
+<!-- 	  </div> -->
+<!-- 	</div> -->
+	<a href="lichchieu/new" class="btn btn-primary" role="button">Tạo lịch chiếu mới</a>
+	<br/>
 	<table class="table table-striped">
 		<thead>
 		<tr>
@@ -23,11 +35,11 @@
 		<tbody>
 		<c:forEach items="${listLichchieu}" var="lich">
 		<tr>
-			<td>${lich.ma}</td>
-			<td>${lich.phim.ten}</td>
-			<td>${lich.ngaychieu}</td>
-			<td>${lich.giochieu}</td>
-			<td>${lich.phong.ten}</td>
+			<td style="vertical-align:middle;">${lich.ma}</td>
+			<td style="vertical-align:middle;">${lich.phim.ten}</td>
+			<td style="vertical-align:middle;">${lich.ngaychieu}</td>
+			<td style="vertical-align:middle;">${lich.giochieu}</td>
+			<td style="vertical-align:middle;">${lich.phong.ten}</td>
 			<td>
 				<a href="lichchieu/edit?id=${lich.ma}" class="btn btn-info" role="button">Chỉnh sửa</a>
 				<a href="lichchieu/delete?id=${lich.ma}" class="btn btn-danger" role="button">Xóa</a>

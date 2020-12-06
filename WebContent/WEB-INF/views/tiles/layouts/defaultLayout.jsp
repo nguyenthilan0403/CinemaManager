@@ -11,30 +11,22 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><tiles:getAsString name="title" /></title>
-	<link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link>
+<%-- 	<link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link> --%>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
  
 <body>
-		<header id="header">
-<%-- 			<h2><tiles:insertAttribute name="header" /> </h2> --%>
-			<h2><tiles:insertAttribute name="header" ignore="true"/> </h2>
-<%-- 			<h2><tiles:putAttribute name="header" value="222222"/> </h2> --%>
-		</header>
-	
 		<section id="sidemenu">
 			<tiles:insertAttribute name="menu" />
 		</section>
 			
-  
 		<section id="site-content">
 			<tiles:insertAttribute name="body" />
 		</section>
-		
-		<footer id="footer">
-			<tiles:insertAttribute name="footer" />
-		</footer>
-		
-		<!-- á à -->
+				
 </body>
 </html>

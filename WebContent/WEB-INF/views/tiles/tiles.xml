@@ -8,10 +8,10 @@
        template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
        <put-attribute name="title" value="" />  
 <!--        <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />   -->
-       <put-attribute name="header" expression="${title2}" />  
+<!--        <put-attribute name="header" expression="${phim.ten}" />   -->
        <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
        <put-attribute name="body" value="" />  
-       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+<!--        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />   -->
    </definition>  
  
    <!-- Customer Index Page -->
@@ -54,5 +54,11 @@
        <put-attribute name="body" value="/WEB-INF/views/phim/new_phim.jsp" />  
    </definition>  
 
- 
+<!--    ====================== DAT VE ======================= --> 
+<!--    Chọn ghế ngồi Page --> 
+   <definition name="datve/seat" extends="base-definition">  
+       <put-attribute name="title" value="Chọn ghế ngồi" />  
+       <put-attribute name="body" value="/WEB-INF/views/datve/seat.jsp" />  
+   </definition>  
+   
 </tiles-definitions>
