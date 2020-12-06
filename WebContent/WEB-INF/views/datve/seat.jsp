@@ -35,11 +35,11 @@
 
 <script type="text/javascript">
 		var tongtien = 0;
-
+		var listVe = [];
 	  function handleClick(clickedId, price)
 	  {
-	// 	  if ($("#" + clickedId).val() == '')
-	// 		alert('RONG NHA')
+// 		  if ($("#" + clickedId).val() == '')
+// 			alert('RONG NHA')
 			  
 	// 		$("#" + clickedId).attr('value', 'Save');
 	// 		$("#" + clickedId).html('Savewww');
@@ -47,5 +47,8 @@
 			$("#" + clickedId).addClass('active');
 			$("#" + clickedId).css("font-weight","Bold");
 			alert("gia tien = " + price)
+
+			listVe.push(clickedId)
+			
 	}
 </script>
