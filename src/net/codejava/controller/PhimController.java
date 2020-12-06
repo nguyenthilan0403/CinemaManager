@@ -1,5 +1,7 @@
 package net.codejava.controller;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -12,25 +14,60 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.codejava.model.Lichchieu;
 import net.codejava.model.Phim;
+import net.codejava.model.Ve;
+import net.codejava.service.CustomerService;
+import net.codejava.service.GheService;
+import net.codejava.service.HanggheService;
+import net.codejava.service.LichchieuService;
 import net.codejava.service.PhimService;
+import net.codejava.service.VeService;
 import net.codejava.util.Uti;
 
 @Controller
 public class PhimController {
 
-	@Autowired
-	PhimService phimService;
+	@Autowired LichchieuService lichchieuService;
+	@Autowired PhimService phimService;
+	@Autowired PhimService phongService;
+	@Autowired HanggheService hanggheService;
+	@Autowired GheService gheService;
+	@Autowired VeService veService;
+	
+	@RequestMapping("/datve/seat")
+	public ModelAndView formChonghe()
+	{
+		System.out.println("Vao dat ve roi nhe");
+		Lichchieu lichchieu = lichchieuService.get(17L);
+		// LAY DANH SACH VE THEO LICH CHIEU
+		List<Ve> listVe = veService.findByLichchieu(lichchieu);
+		Collections.sort(listVe);
+		System.out.println("List ve sau khi sap xep 17L: ");
+		for (Ve v : listVe) {
+			System.out.println("Ghe cua ve = " + v.getGhe().getTen());
+		}
+		
+		ModelAndView mav = new ModelAndView("datve/seat");
+		mav.addObject("listVe", listVe);
+		
+		return mav;
+	}
 	
 	@RequestMapping("/phim")
 	public ModelAndView home(ModelMap model)
 	{
+		// ============= LIST VE =============
+		List<Ve> listVe = veService.findByLichchieu(lichchieuService.get(17L));
+		Collections.sort(listVe);
+
+		System.out.println("Thu viet ti");
+		// ============= LAY VE VA DUA RA VIEW =============00---
 		List<Phim> result = phimService.listAll();
 		
 		ModelAndView mav = new ModelAndView("phim/index");
 		mav.addObject("listPhim", result);
 		
-		model.addAttribute("title2", "Quản lý danh sách phim");
 		return mav;
 	}
 	
@@ -61,7 +98,7 @@ public class PhimController {
 	
 	@RequestMapping(value="/phim/edit")
 	public ModelAndView editPhimForm(@RequestParam Long id, ModelMap model) {
-		
+
 		ModelAndView mav = new ModelAndView("phim/edit_phim");
 		Phim phim = phimService.get(id);
 		mav.addObject("phim", phim);

@@ -34,26 +34,18 @@ import net.codejava.service.VeService;
 
 @Controller
 public class LichchieuController {
-	@Autowired
-	LichchieuService lichchieuService;
-	@Autowired
-	CustomerService customerService;
-	@Autowired
-	PhimService phimService;
-	@Autowired
-	PhongService phongService;
-	@Autowired
-	HanggheService hanggheService;
-	@Autowired
-	GheService gheService;
-	@Autowired
-	VeService veService;
+	@Autowired LichchieuService lichchieuService;
+	@Autowired CustomerService customerService;
+	@Autowired PhimService phimService;
+	@Autowired PhongService phongService;
+	@Autowired HanggheService hanggheService;
+	@Autowired GheService gheService;
+	@Autowired VeService veService;
 	
 	@RequestMapping("/lichchieu")
 	public ModelAndView home()
 	{
 		System.out.println("Vao home lichchieu");
-		
 		List<Lichchieu> listLichchieu = lichchieuService.listAll();
 		
 		ModelAndView mav = new ModelAndView("lichchieu/index");
@@ -98,11 +90,13 @@ public class LichchieuController {
 //	    	date1 = new Date(1,1,1);
 //	    }
 	    
-//		List<Ghe> listGhe = gheService.findByLichchieu(lichchieu);
-//		for(Ghe ghe : listGhe) {
-//			System.out.println("Ghe cua lich la: " + ghe.getTen());
-//			veService.save(new Ve(9L, ghe, lichchieu));
-//		}
+		// =============== TAO RA VE CUA PHONG CHIEU ===============
+		List<Ghe> listGhe = gheService.findByLichchieu(lichchieu);
+		for(Ghe ghe : listGhe) {
+			System.out.println("Ghe cua lich la: " + ghe.getTen());
+			//Tam thoi dat gia tien la 9L
+			veService.save(new Ve(9L, ghe, lichchieu));
+		}
 		
 		System.out.println("Gio chieu = " + giochieu);
 		System.out.println("Ngay chieu = " + ngaychieu);
