@@ -73,6 +73,7 @@ public class PhimController {
 	
 	@RequestMapping("/phim/new")
 	public String newPhimForm(Map<String, Object> model) {
+		
 		Phim phim = new Phim();
 		model.put("phim", phim);
 //		System.out.println("Vao new phim roi");

@@ -7,8 +7,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.codejava.model.Ghe;
 import net.codejava.model.Hangghe;
 import net.codejava.model.Lichchieu;
+import net.codejava.model.Phim;
 import net.codejava.repository.LichchieuRepository;
 
 @Service
@@ -36,5 +38,10 @@ public class LichchieuService {
 	
 	public void delete(Long id) {
 		repo.deleteById(id);
+	}
+	
+	public List<Lichchieu> findByPhim(Phim maphim)
+	{
+		return repo.findByPhim(maphim);
 	}
 }
