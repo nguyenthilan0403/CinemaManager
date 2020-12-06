@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.codejava.dto.GheVeDto;
 import net.codejava.model.*;
 import net.codejava.repository.*;
 import net.codejava.service.CustomerService;
@@ -36,7 +35,7 @@ public class CustomerController {
 	@Autowired GheService gheService;
 	@Autowired VeService veService;
 
-	@RequestMapping("/")
+	@RequestMapping("/customer")
 	public ModelAndView home() {
 
 		System.out.println("Vao home customer nhe222");

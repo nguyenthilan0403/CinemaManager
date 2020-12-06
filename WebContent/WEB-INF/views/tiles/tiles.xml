@@ -7,10 +7,11 @@
    <definition name="base-definition" 
        template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
        <put-attribute name="title" value="" />  
-       <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />  
+<!--        <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />   -->
+<!--        <put-attribute name="header" expression="${phim.ten}" />   -->
        <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
        <put-attribute name="body" value="" />  
-       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+<!--        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />   -->
    </definition>  
  
    <!-- Customer Index Page -->
@@ -26,9 +27,9 @@
        <put-attribute name="body" value="/WEB-INF/views/lichchieu/index.jsp" />  
    </definition>  
    <!-- Lịch chiếu Index Page -->
-   <definition name="lichchieu/detail" extends="base-definition">  
+   <definition name="lichchieu/edit" extends="base-definition">  
        <put-attribute name="title" value="Chi tiết lịch chiếu" />  
-       <put-attribute name="body" value="/WEB-INF/views/lichchieu/detail.jsp" />  
+       <put-attribute name="body" value="/WEB-INF/views/lichchieu/edit.jsp" />  
    </definition>  
    <!-- Tạo lịch chiếu mới Page -->
    <definition name="lichchieu/new_lichchieu" extends="base-definition">  
@@ -49,18 +50,15 @@
    </definition>  
    <!-- Tạo lịch chiếu mới Page -->
    <definition name="phim/new_phim" extends="base-definition">  
-       <put-attribute name="title" value="Tạo lịch chiếu mới" />  
+       <put-attribute name="title" value="Thêm phim mới" />  
        <put-attribute name="body" value="/WEB-INF/views/phim/new_phim.jsp" />  
    </definition>  
-<!-- ======================ĐẶT VÉ  ======================= -->
-<!-- Danh sách các phim -->
- <definition name="datve/chonphim" extends="base-definition">  
-       <put-attribute name="title" value="Trang chủ đặt vé" />  
-       <put-attribute name="body" value="/WEB-INF/views/datve/chonphim.jsp" />  
-   </definition> 
- <definition name="datve/phim" extends="base-definition">  
-       <put-attribute name="title" value="Chi tiết phim và lịch chiếu" />  
-       <put-attribute name="body" value="/WEB-INF/views/datve/phim.jsp" />  
-   </definition>
- 
+
+<!--    ====================== DAT VE ======================= --> 
+<!--    Chọn ghế ngồi Page --> 
+   <definition name="datve/seat" extends="base-definition">  
+       <put-attribute name="title" value="Chọn ghế ngồi" />  
+       <put-attribute name="body" value="/WEB-INF/views/datve/seat.jsp" />  
+   </definition>  
+   
 </tiles-definitions>

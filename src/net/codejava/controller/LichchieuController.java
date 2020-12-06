@@ -34,26 +34,18 @@ import net.codejava.service.VeService;
 
 @Controller
 public class LichchieuController {
-	@Autowired
-	LichchieuService lichchieuService;
-	@Autowired
-	CustomerService customerService;
-	@Autowired
-	PhimService phimService;
-	@Autowired
-	PhongService phongService;
-	@Autowired
-	HanggheService hanggheService;
-	@Autowired
-	GheService gheService;
-	@Autowired
-	VeService veService;
+	@Autowired LichchieuService lichchieuService;
+	@Autowired CustomerService customerService;
+	@Autowired PhimService phimService;
+	@Autowired PhongService phongService;
+	@Autowired HanggheService hanggheService;
+	@Autowired GheService gheService;
+	@Autowired VeService veService;
 	
 	@RequestMapping("/lichchieu")
 	public ModelAndView home()
 	{
 		System.out.println("Vao home lichchieu");
-		
 		List<Lichchieu> listLichchieu = lichchieuService.listAll();
 		
 		ModelAndView mav = new ModelAndView("lichchieu/index");
@@ -73,24 +65,18 @@ public class LichchieuController {
 		mav.addObject("listPhim", listPhim);
 		mav.addObject("listPhong", listPhong);
 		
-		
 		return mav;
 	}
 
 	@RequestMapping(value="/lichchieu/save", method=RequestMethod.POST)
-	public String saveLieuchieuForm(@ModelAttribute("model/lichchieu") Lichchieu lichchieu, 
-			@RequestParam("maphim") Long maphim, @RequestParam("maphong") Long maphong)
+	public String saveLichchieuForm(@ModelAttribute("model/lichchieu") Lichchieu lichchieu, 
+			@RequestParam("maphim") Long maphim, @RequestParam("maphong") Long maphong,
+			@RequestParam("ngaychieu") String ngaychieu, @RequestParam("giochieu") String giochieu)
 	{
-//		System.out.println("Save lich chieu");
-//		System.out.println("Ma phim = " + maphim);
-//		System.out.println("Ma phong = " + maphong);
-//		System.out.println(lichchieu.getThoigian());
-		
-		
+		// ========= LUU LICH CHIEU VAO CSDL
 		lichchieu.setPhim(phimService.get(maphim));
 		lichchieu.setPhong(phongService.get(maphong));
 		lichchieuService.save(lichchieu);
-
 		
 		// ========= LAY GIA VE =============
 //		String sDate1 = lichchieu.getThoigian(); 
@@ -104,21 +90,22 @@ public class LichchieuController {
 //	    	date1 = new Date(1,1,1);
 //	    }
 	    
-	    
-//		Long giave = 1
-		
+		// =============== TAO RA VE CUA PHONG CHIEU ===============
 		List<Ghe> listGhe = gheService.findByLichchieu(lichchieu);
 		for(Ghe ghe : listGhe) {
 			System.out.println("Ghe cua lich la: " + ghe.getTen());
+			//Tam thoi dat gia tien la 9L
 			veService.save(new Ve(9L, ghe, lichchieu));
 		}
 		
-		System.out.println("Them lich chieu xong roi nhe");
+		System.out.println("Gio chieu = " + giochieu);
+		System.out.println("Ngay chieu = " + ngaychieu);
+		System.out.println("Them lich chieu xong roi nhe2");
 		return "redirect:/lichchieu";
 	}
 
 	@RequestMapping(value="/lichchieu/detail")
-	public String saveLieuchieuForm(@RequestParam Long id)
+	public String detailLichchieuForm(@RequestParam Long id)
 	{
 		Lichchieu lichchieu = lichchieuService.get(id);
 		ModelAndView mav = new ModelAndView("lichchieu/detail");
@@ -134,5 +121,31 @@ public class LichchieuController {
 //		}
 
 		return "redirect:/lichchieu";
+	}
+	
+	@RequestMapping(value="lichchieu/delete")
+	public String deleteLichchieuForm(@RequestParam Long id) {
+		System.out.println("Vao delete lich chieu");
+		lichchieuService.delete(id);
+		
+		return "redirect:/lichchieu";
+	}
+	
+	@RequestMapping("lichchieu/edit")
+	public ModelAndView editLichchieuForm(@RequestParam Long id, ModelMap model) {
+		ModelAndView mav = new ModelAndView("lichchieu/edit");
+		
+		Lichchieu lichchieu = lichchieuService.get(id);
+		model.addAttribute("selectedPhimId", lichchieu.getPhim().getMa());
+		model.addAttribute("selectedPhongId", lichchieu.getPhong().getMa());
+		List<Phim> listPhim = phimService.listAll();
+		List<Phong> listPhong = phongService.listAll();
+		mav.addObject("listPhim", listPhim);
+		mav.addObject("listPhong", listPhong);
+		mav.addObject("lc", lichchieu);
+		
+		
+		
+		return mav;
 	}
 }

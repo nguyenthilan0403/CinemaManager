@@ -1,7 +1,9 @@
-<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<nav>
-<a href="">Đăng ký</a>
-<a href=" ">Đăng nhập</a>
-<a href=" ">Vé của tôi</a>
-</nav>
+<div>
+    	<!-- <h1>Tiles Demo</h1> -->
+    	<h1>Eheheheh3</h1>
+    	<h1>${title}</h1>
+    	
+    	
+</div>
