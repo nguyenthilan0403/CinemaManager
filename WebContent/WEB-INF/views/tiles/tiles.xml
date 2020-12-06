@@ -52,6 +52,15 @@
        <put-attribute name="title" value="Tạo lịch chiếu mới" />  
        <put-attribute name="body" value="/WEB-INF/views/phim/new_phim.jsp" />  
    </definition>  
-
+<!-- ======================ĐẶT VÉ  ======================= -->
+<!-- Danh sách các phim -->
+ <definition name="datve/chonphim" extends="base-definition">  
+       <put-attribute name="title" value="Trang chủ đặt vé" />  
+       <put-attribute name="body" value="/WEB-INF/views/datve/chonphim.jsp" />  
+   </definition> 
+ <definition name="datve/phim" extends="base-definition">  
+       <put-attribute name="title" value="Chi tiết phim và lịch chiếu" />  
+       <put-attribute name="body" value="/WEB-INF/views/datve/phim.jsp" />  
+   </definition>
  
 </tiles-definitions>
