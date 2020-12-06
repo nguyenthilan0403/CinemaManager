@@ -30,12 +30,20 @@ import net.codejava.service.VeService;
 
 @Controller
 public class DatVeController {
+<<<<<<< HEAD
 	@Autowired PhimService phimService;
 	@Autowired LichchieuService lichchieuService;
 	@Autowired GheService gheService;
 	@Autowired VeService veService;
 	@Autowired HoadonService hoadonService;
 	
+=======
+	@Autowired
+	PhimService phimService;
+	@Autowired
+	LichchieuService lichchieuService;
+
+>>>>>>> main
 	@RequestMapping("/datve")
 	public ModelAndView DanhSachPhim() {
 		ModelAndView model = new ModelAndView("datve/chonphim");
@@ -43,14 +51,12 @@ public class DatVeController {
 		model.addObject("danhsachphim", danhsachphim);
 		return model;
 	}
-	
+
 	@RequestMapping("/datve/phim")
 	public ModelAndView ChonPhim(@RequestParam("id") Long maphim) {
 		ModelAndView model = new ModelAndView("datve/phim");
-		
-		System.out.println("vao controller datve phim");
-		List<Lichchieu> lichchieu = lichchieuService.findByPhim(phimService.get(maphim));
-		System.out.println("da lay xong lich chieu");
+
+		List<Lichchieu> lichchieu = lichchieuService.getLichChieuTuongLai(phimService.get(maphim));
 		Phim phim = phimService.get(maphim);
 		model.addObject("phim", phim);
 		model.addObject("danhsachlichchieu", lichchieu);

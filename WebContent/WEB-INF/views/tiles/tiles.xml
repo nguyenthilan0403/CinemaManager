@@ -55,15 +55,28 @@
    </definition>  
 
 <!--    ====================== DAT VE ======================= --> 
+<definition name="datve/chonphim" extends="base-definition">  
+       <put-attribute name="title" value="Danh sach phim" />  
+       <put-attribute name="body" value="/WEB-INF/views/datve/chonphim.jsp" />  
+   </definition>  
+   <definition name="datve/phim" extends="base-definition">  
+       <put-attribute name="title" value="Chi tiet lich chieu phim" />  
+       <put-attribute name="body" value="/WEB-INF/views/datve/phim.jsp" />  
+   </definition>  
 <!--    Chọn ghế ngồi Page --> 
    <definition name="datve/seat" extends="base-definition">  
        <put-attribute name="title" value="Chọn ghế ngồi" />  
        <put-attribute name="body" value="/WEB-INF/views/datve/seat.jsp" />  
+<<<<<<< HEAD
    </definition>  
 <!--    Chọn ghế ngồi Page --> 
    <definition name="datve/hoadon" extends="base-definition">  
        <put-attribute name="title" value="Hóa đơn thanh toán" />  
        <put-attribute name="body" value="/WEB-INF/views/datve/hoadon.jsp" />  
    </definition>  
+=======
+   </definition>
+     
+>>>>>>> main
    
 </tiles-definitions>
