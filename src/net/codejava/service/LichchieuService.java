@@ -40,8 +40,13 @@ public class LichchieuService {
 		repo.deleteById(id);
 	}
 	
-	public List<Lichchieu> findByPhim(Phim maphim)
+	public List<Lichchieu> findByPhim(Phim phim)
 	{
-		return repo.findByPhim(maphim);
+		return repo.findByPhim(phim);
+	}
+	
+	public List<Lichchieu> getLichChieuTuongLai(Phim phim)
+	{
+		return repo.getLichChieuTuongLai(phim);
 	}
 }
