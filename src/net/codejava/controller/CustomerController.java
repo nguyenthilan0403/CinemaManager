@@ -20,6 +20,7 @@ import net.codejava.repository.*;
 import net.codejava.service.CustomerService;
 import net.codejava.service.GheService;
 import net.codejava.service.HanggheService;
+import net.codejava.service.HoadonService;
 import net.codejava.service.LichchieuService;
 import net.codejava.service.PhimService;
 import net.codejava.service.VeService;
@@ -34,16 +35,49 @@ public class CustomerController {
 	@Autowired HanggheService hanggheService;
 	@Autowired GheService gheService;
 	@Autowired VeService veService;
+	@Autowired HoadonService hoadonService;
 
-	@RequestMapping("/customer")
+	@RequestMapping("/")
 	public ModelAndView home() {
 
-		System.out.println("Vao home customer nhe222");
+		System.out.println("Vao home customer nhe");
 		
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date(2021, 12,14));
 		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 		System.out.println("Day of weekk 2021 14 = " + dayOfWeek);
+		
+//		Hoadon hd = new Hoadon();
+//		Lichchieu lc = lichchieuService.get(18L);
+//		hd.setLichchieu(lc);
+//		hd.setTongtien(100L);
+//		hoadonService.save(hd);
+//		
+//		System.out.println("In xong hoa don roi");
+//		Ve v1 = veService.get(12L);
+//		Ve v2 = new Ve();
+//		v2.setLichchieu(v1.getLichchieu());
+//		v2.setHoadon(hd);
+//		v2.setGiatien(v1.getGiatien());
+//		v2.setGhe(v1.getGhe());
+//		veService.delete(v1.getMa());
+//		veService.save(v2);
+		
+//		System.out.println("In xong hoa don roi");
+////		Ve v1 = new Ve();
+//		Ve v1 = veService.get(12L);
+//		Ve v2 = new Ve();
+//		Ghe g1 = gheService.get(v1.getGhe().getMa());
+//		System.out.println("Lay xong ghe");
+//		System.out.println("Set ghe");
+//		v2.setLichchieu(lc);
+//		v2.setHoadon(hd);
+//		v2.setMa(v1.getMa());
+//		v2.setGiatien(v1.getGiatien());
+//		v2.setGhe(g1);
+//		veService.delete(v1.getMa());
+//		veService.save(v2);
+		
 //		List<Ghe> listGhe = gheService.findByLichchieu(lichchieuService.get(1L));
 //		System.out.println("Lay listghe thanh cong");
 //		
@@ -75,7 +109,7 @@ public class CustomerController {
 //		for (Ghe ghe : g) {
 //			System.out.println(ghe.getMa());
 //		}
-//		
+
 		List<Customer> listCustomer = customerService.listAll();
 		ModelAndView mav = new ModelAndView("customer/index");
 		mav.addObject("listCustomer", listCustomer);

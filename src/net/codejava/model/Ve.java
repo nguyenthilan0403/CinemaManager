@@ -11,7 +11,6 @@ public class Ve implements Serializable, Comparable<Ve> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long ma;
 	
-
 	Long giatien;
 	
 	@ManyToOne

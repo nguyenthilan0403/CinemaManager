@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 	<name>Cinema Manager</name>
 	<description>A Sample Spring MVC + Spring Data JPA Project</description>
-
+   
 	<properties>
 		<spring.version>5.1.5.RELEASE</spring.version>
 		<hibernate.version>5.4.1.Final</hibernate.version>

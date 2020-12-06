@@ -1,6 +1,7 @@
 package net.codejava.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ public class Loaighe implements Serializable {
 	private String ten;
 	private Long phuthu;
 
-    @OneToMany(mappedBy = "loaighe", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "loaighe", cascade = CascadeType.ALL)
     private Set<Ghe> ghe;
 
 	@Override

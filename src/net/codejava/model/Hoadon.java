@@ -1,6 +1,7 @@
 package net.codejava.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -15,6 +16,24 @@ public class Hoadon implements Serializable {
 	@JoinColumn(name="malichchieu", nullable=false)
 	Lichchieu lichchieu;
 	
+	Long tongtien;
+	
+	public Hoadon(Long ma, Lichchieu lichchieu, Long tongtien, Set<Ve> ve) {
+		super();
+		this.ma = ma;
+		this.lichchieu = lichchieu;
+		this.tongtien = tongtien;
+		this.ve = ve;
+	}
+
+	public Long getTongtien() {
+		return tongtien;
+	}
+
+	public void setTongtien(Long tongtien) {
+		this.tongtien = tongtien;
+	}
+
 	@OneToMany(mappedBy="hoadon", cascade = CascadeType.ALL)
 	Set<Ve> ve;
 
@@ -59,6 +78,7 @@ public class Hoadon implements Serializable {
 		int result = 1;
 		result = prime * result + ((lichchieu == null) ? 0 : lichchieu.hashCode());
 		result = prime * result + ((ma == null) ? 0 : ma.hashCode());
+		result = prime * result + ((tongtien == null) ? 0 : tongtien.hashCode());
 		result = prime * result + ((ve == null) ? 0 : ve.hashCode());
 		return result;
 	}
@@ -81,6 +101,11 @@ public class Hoadon implements Serializable {
 			if (other.ma != null)
 				return false;
 		} else if (!ma.equals(other.ma))
+			return false;
+		if (tongtien == null) {
+			if (other.tongtien != null)
+				return false;
+		} else if (!tongtien.equals(other.tongtien))
 			return false;
 		if (ve == null) {
 			if (other.ve != null)

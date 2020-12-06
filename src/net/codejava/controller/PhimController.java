@@ -35,33 +35,14 @@ public class PhimController {
 	@Autowired GheService gheService;
 	@Autowired VeService veService;
 	
-	@RequestMapping("/datve/seat")
-	public ModelAndView formChonghe()
-	{
-		System.out.println("Vao dat ve roi nhe");
-		Lichchieu lichchieu = lichchieuService.get(17L);
-		// LAY DANH SACH VE THEO LICH CHIEU
-		List<Ve> listVe = veService.findByLichchieu(lichchieu);
-		Collections.sort(listVe);
-		System.out.println("List ve sau khi sap xep 17L: ");
-		for (Ve v : listVe) {
-			System.out.println("Ghe cua ve = " + v.getGhe().getTen());
-		}
-		
-		ModelAndView mav = new ModelAndView("datve/seat");
-		mav.addObject("listVe", listVe);
-		
-		return mav;
-	}
-	
 	@RequestMapping("/phim")
 	public ModelAndView home(ModelMap model)
 	{
 		// ============= LIST VE =============
-		List<Ve> listVe = veService.findByLichchieu(lichchieuService.get(17L));
-		Collections.sort(listVe);
+//		List<Ve> listVe = veService.findByLichchieu(lichchieuService.get(18L));
+//		Collections.sort(listVe);
 
-		System.out.println("Thu viet ti");
+//		System.out.println("Thu viet ti18");
 		// ============= LAY VE VA DUA RA VIEW =============00---
 		List<Phim> result = phimService.listAll();
 		
