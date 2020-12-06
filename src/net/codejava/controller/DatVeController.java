@@ -15,9 +15,11 @@ import net.codejava.service.PhimService;
 
 @Controller
 public class DatVeController {
-	@Autowired PhimService phimService;
-	@Autowired LichchieuService lichchieuService;
-	
+	@Autowired
+	PhimService phimService;
+	@Autowired
+	LichchieuService lichchieuService;
+
 	@RequestMapping("/datve")
 	public ModelAndView DanhSachPhim() {
 		ModelAndView model = new ModelAndView("datve/chonphim");
@@ -25,14 +27,12 @@ public class DatVeController {
 		model.addObject("danhsachphim", danhsachphim);
 		return model;
 	}
-	
+
 	@RequestMapping("/datve/phim")
 	public ModelAndView ChonPhim(@RequestParam("id") Long maphim) {
 		ModelAndView model = new ModelAndView("datve/phim");
-		
-		System.out.println("vao controller datve phim");
-		List<Lichchieu> lichchieu = lichchieuService.findByPhim(phimService.get(maphim));
-		System.out.println("da lay xong lich chieu");
+
+		List<Lichchieu> lichchieu = lichchieuService.getLichChieuTuongLai(phimService.get(maphim));
 		Phim phim = phimService.get(maphim);
 		model.addObject("phim", phim);
 		model.addObject("danhsachlichchieu", lichchieu);
